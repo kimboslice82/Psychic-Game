@@ -46,7 +46,7 @@
             wins++;
           }
           else if (userGuess != computerGuess) {
-            losses++, guessesLeft--;
+            losses++, guessesLeft--; guessesSoFar++;
           }     
            
 
@@ -55,7 +55,7 @@
           "<p>wins: " + wins + "</p>" +
           "<p>losses: " + losses + "</p>" +
           "<p>Guesses left: " + guessesLeft + "</p>" +
-          "<p>Guesses so far: " + guessesSoFar + "</p>";
+          "<p>Guesses so far: " + userGuess + "</p>";
 
 
           // Injecting the HTML we just created into our div and updating the game information on our page.
