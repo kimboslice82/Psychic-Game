@@ -3,31 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <title>The Psychic Game</title>
-<<<<<<< HEAD
       <h1>The Psychic Game</h1>
-=======
-    	<h1>The Psychic Game</h1>
->>>>>>> ce0f7be893a6a4f669ac9ebee6b1bc9e56a23eb2
       <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
   <body>
-<<<<<<< HEAD
   
-=======
-	
->>>>>>> ce0f7be893a6a4f669ac9ebee6b1bc9e56a23eb2
     <!-- When we start playing the game, our HTML will be placed into this div. -->
     <div id="game">
       <p>Guess what letter I'm thinking of</p>
     </div>
-<<<<<<< HEAD
   
      
-=======
-	
-	   
->>>>>>> ce0f7be893a6a4f669ac9ebee6b1bc9e56a23eb2
     <script type="text/javascript">
 
       // Our array of possible computer choices.
@@ -48,14 +35,6 @@
         // Determine which key was pressed
         var userGuess = event.key;
        
-<<<<<<< HEAD
-=======
-       
-
-        /*for (var i = 0; i < letters.length; i++ ) {
-        	   var lettersUsed = $(userGuess); 
-        }*/
->>>>>>> ce0f7be893a6a4f669ac9ebee6b1bc9e56a23eb2
 
         // Sets the computerGuess variable equal to a random choice from the computerChoice array.
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -75,7 +54,6 @@
            guessedSoFar.push(userGuess);
            guessesLeft--;
 
-<<<<<<< HEAD
 
           // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate counter.
           if (userGuess === computerGuess) {
@@ -84,42 +62,16 @@
 
             if (guessesLeft == 0){
                losses++; myFunction();
-=======
-
-
-        // If the user presses "r" or "p" or "s", run the game logic.
-        if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") || (userGuess === "d") || (userGuess === "e") || (userGuess === "f") || (userGuess === "g") || (userGuess === "h") || (userGuess === "i") || (userGuess === "j") || (userGuess === "k") || (userGuess === "l") || ( 
-        	userGuess === "m") || (userGuess === "n") || (userGuess === "o") || (
-        	userGuess === "p") || (userGuess === "q") || (userGuess === "r") || (
-        	userGuess === "s") || (userGuess === "t") || (userGuess === "u") || (
-        	userGuess === "v") || (userGuess === "w") || (userGuess === "x") || (
-        	userGuess === "y") || (userGuess === "z")) {
-
-          // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate counter.
-          if (userGuess === computerGuess) {
-            wins++, guessesLeft = 9;
-          }
-
-          else if (userGuess != computerGuess) {
-            guessesLeft--; guessedSoFar.push(userGuess);
-           // {     $(userGuess).append(guessedSoFar);
-           //     console.log(guessedSoFar);
-	          // }
->>>>>>> ce0f7be893a6a4f669ac9ebee6b1bc9e56a23eb2
             }
 
 
 
-	        // Here we create the HTML that will be injected into our div and displayed on the page.
+          // Here we create the HTML that will be injected into our div and displayed on the page.
           var html = "<p>Guess what letter I'm thinking of</p>" +
           "<p>wins: " + wins + "</p>" +
           "<p>losses: " + losses + "</p>" +
           "<p>Guesses left: " + guessesLeft + "</p>" +
-<<<<<<< HEAD
           "<p>Your guesses so far: " + guessedSoFar.join() +  "</p>";
-=======
-          "<p>Your guesses so far: " + userGuess +  "</p>";
->>>>>>> ce0f7be893a6a4f669ac9ebee6b1bc9e56a23eb2
 
 
           // Injecting the HTML we just created into our div and updating the game information on our page.
