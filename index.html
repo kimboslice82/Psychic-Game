@@ -3,69 +3,84 @@
   <head>
     <meta charset="UTF-8">
     <title>The Psychic Game</title>
+      <h1>The Psychic Game</h1>
       <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
   <body>
-
+  
     <!-- When we start playing the game, our HTML will be placed into this div. -->
     <div id="game">
       <p>Guess what letter I'm thinking of</p>
     </div>
-
+  
+     
     <script type="text/javascript">
 
       // Our array of possible computer choices.
       var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-      // Variables for tracking our wins, losses and ties. They begin at 0.
+      // Variables for tracking our wins, losses, guesses so far, & guesses left. They begin at 0 except guesses left.
       var wins = 0;
       var losses = 0;
       var guessesLeft = 9;
-      var guessesSoFar = 0;
+      var guessedSoFar = [];
+
+
+
 
       // When the user presses a key, it will run the following function...
       document.onkeyup = function(event) {
 
         // Determine which key was pressed
         var userGuess = event.key;
+       
 
         // Sets the computerGuess variable equal to a random choice from the computerChoice array.
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        console.log(computerGuess);
 
-        // If the user presses "r" or "p" or "s", run the game logic.
-        if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") || (userGuess === "d") || (userGuess === "e") || (userGuess === "f") || (userGuess === "g") || (userGuess === "h") || (userGuess === "i") || (userGuess === "j") || (userGuess === "k") || (userGuess === "l") || ( 
-        	userGuess === "m") || (userGuess === "n") || (userGuess === "o") || (
-        	userGuess === "p") || (userGuess === "q") || (userGuess === "r") || (
-        	userGuess === "s") || (userGuess === "t") || (userGuess === "u") || (
-        	userGuess === "v") || (userGuess === "w") || (userGuess === "x") || (
-        	userGuess === "y") || (userGuess === "z")) {
+        function myFunction(){
+          guessesLeft = 9;
+          guesses = [];
+          computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+         
+          console.log(computerGuess);
+        }
+
+      
+
+        
+           guessedSoFar.push(userGuess);
+           guessesLeft--;
+
 
           // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate counter.
           if (userGuess === computerGuess) {
-            wins++;
+            wins++, myFunction();
           }
-          else if (userGuess != computerGuess) {
-            losses++, guessesLeft--; guessesSoFar++;
-          }     
-           
+
+            if (guessesLeft == 0){
+               losses++; myFunction();
+            }
+
+
 
           // Here we create the HTML that will be injected into our div and displayed on the page.
           var html = "<p>Guess what letter I'm thinking of</p>" +
           "<p>wins: " + wins + "</p>" +
           "<p>losses: " + losses + "</p>" +
           "<p>Guesses left: " + guessesLeft + "</p>" +
-          "<p>Guesses so far: " + userGuess + "</p>";
+          "<p>Your guesses so far: " + guessedSoFar.join() +  "</p>";
 
 
           // Injecting the HTML we just created into our div and updating the game information on our page.
           document.getElementById("game").innerHTML = html;
 
-        }
+        
       };
 
     </script>
 
   </body>
 </html>
-
